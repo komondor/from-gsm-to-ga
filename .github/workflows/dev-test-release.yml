@@ -1,0 +1,25 @@
+name: testing-after-publishing
+on:
+  push:
+    branches:
+      - 'master'
+jobs:
+  testing-after-publishing:
+    if: ${{ github.event_name == 'push' || github.repository == github.event.pull_request.head.repo.full_name && github.actor != 'dependabot[bot]' }}
+    name: with setup-gcloud
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: google-github-actions/setup-gcloud@master
+        with:
+          version: '290.0.1'
+          service_account_key: ${{ secrets.GCP_KEY }}
+          project_id: ${{ secrets.GCP_PROJECT_NAME }}
+          export_default_credentials: true
+      - id: secrets
+        name: get secrets
+        uses: komondor/from-gsm-to-ga@v0.1
+        with:
+          secrets: ${{ secrets.GCP_PROJECT_NAME }}/DEV_CREDENTIALS
+      - name: get output
+        run: echo '${{ steps.secrets.outputs.HASURA_GLOBAL_API_SECRET}}'

@@ -1,0 +1,43 @@
+{
+  "name": "from-gsm-to-ga",
+  "version": "0.0.1",
+  "description": "Import a single Google Secret that contains multiple credentials to Github Actions",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build src/main.ts",
+    "format": "prettier --write **/*.ts",
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/komondor/from-gsm-to-ga"
+  },
+  "keywords": [
+    "actions",
+    "google cloud",
+    "secret manager",
+    "setup"
+  ],
+  "author": "komondor",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@actions/core": "^1.5.0",
+    "google-auth-library": "^7.9.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.7.13",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "@vercel/ncc": "^0.30.0",
+    "chai": "^4.3.4",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.2",
+    "mocha": "^9.1.1",
+    "prettier": "^2.3.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.3.5"
+  }
+}
