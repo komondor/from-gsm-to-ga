@@ -2,7 +2,7 @@
 
 Modified version of [google-github-actions/get-secretmanager-secrets](https://github.com/google-github-actions/get-secretmanager-secrets) for my use case
 
-## use case ?
+## use case
 
 - Some of my project have one Google Secrets per environement
 - Each Google Secret contains all the credientals and variables for each environment
